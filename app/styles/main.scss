@@ -1,6 +1,9 @@
-$fa-font-path: "../fonts/bower_components/font-awesome/fonts/";
+// imports
 @import "font-awesome";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600);
 
+// variables
+$fa-font-path: "../fonts/bower_components/font-awesome/fonts/";
 
 // bower:scss
 // endbower
@@ -14,6 +17,10 @@ $fa-font-path: "../fonts/bower_components/font-awesome/fonts/";
 
 body {
   padding: 0;
+}
+
+.container {
+  margin-left: 250px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

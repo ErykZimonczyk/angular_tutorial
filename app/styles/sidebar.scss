@@ -1,0 +1,75 @@
+// variables
+
+$standard-menu-color: #32162e;
+$standard-light-white-font: #E3E3E3;
+$standard-light-menu: #813a76;
+$standard-blue-light: #1e6f88;
+
+
+//styles
+
+nav.custom-navbar {
+  background: $standard-menu-color;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 250px;
+
+  header {
+    width: 100%;
+    color: white;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 900;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: 2px solid $standard-blue-light;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 10px;
+
+    span {
+      padding: 5px 5px 5px 10px;
+      display: inline-block;
+    }
+  }
+
+  .side-nav {
+    li {
+
+      position: relative;
+      padding-right: 30px;
+
+      a {
+        color: $standard-light-white-font;
+        font-family: 'Open Sans',sans-serif;
+        font-weight: 700;
+        font-size: 1.5em;
+
+        &:hover {
+          color: $standard-menu-color;
+        }
+
+        &:focus {
+          color: $standard-blue-light;
+        }
+
+        span.fa {
+          padding: 10px 15px 10px 5px;
+        }
+      }
+
+      &:hover {
+        background: $standard-light-menu;
+      }
+    }
+  }
+}
