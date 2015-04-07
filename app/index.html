@@ -24,21 +24,23 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="custom-navbar">
+    <div class="custom-navbar">
       <header>
-        SzopList
+        <span class="fa fa-bars"></span><a ng-href="#/">foram</a>
       </header>
       <ul class="side-nav" role="navigation">
-        <li><a ng-href="#/"><span class="fa fa-home"></span>Home</a></li>
-        <li><a ng-href="#"><span class="fa fa-file-o"></span>Shopping Lists</a></li>
-        <li><a ng-href="#"><span class="fa fa-database"></span>Storages</a></li>
-        <li><a ng-href="#/settings"><span class="fa fa-gear"></span>Settings</a></li>
+        <li><a ng-href="#/"><span class="fa fa-fw fa-home"></span>Home</a></li>
+        <li><a ng-href="#/databases"><span class="fa fa-fw fa-database"></span>Databases</a></li>
+        <li><a ng-href="#/browser"><span class="fa fa-fw fa-folder-open"></span>Browse</a></li>
+        <li><a ng-href="#/visualization"><span class="fa fa-fw fa-cube"></span>3D Visualisation</a></li>
+        <li><a ng-href="#/charts"><span class="fa fa-fw fa-area-chart"></span>Charts</a></li>
+        <li><a ng-href="#/settings"><span class="fa fa-fw fa-gear"></span>Settings</a></li>
       </ul>
       <footer>
         <span class="fa fa-keyboard-o fa-2x"></span>
         by ErZ
       </footer>
-    </nav>
+    </div>
 
     <div class="container">
     <div ng-view=""></div>

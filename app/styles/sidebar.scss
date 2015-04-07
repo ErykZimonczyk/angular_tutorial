@@ -1,31 +1,54 @@
 // variables
 
-$standard-menu-color: #32162e;
-$standard-light-white-font: #E3E3E3;
-$standard-light-menu: #813a76;
-$standard-blue-light: #1e6f88;
+$standard-menu-color: #434343;
+$standard-light-white-font: #fdffc3;
+$standard-light-menu: #717171;
+$standard-baige-light: #d0b149;
+
+@mixin transition($time) {
+  -webkit-transition: all $time cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -moz-transition: all $time cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -o-transition: all $time cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  transition: all $time cubic-bezier(0.455, 0.030, 0.515, 0.955); /* easeInOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -moz-transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  -o-transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+}
+
 
 
 //styles
 
-nav.custom-navbar {
+div.custom-navbar {
   background: $standard-menu-color;
   position: fixed;
   height: 100%;
   left: 0;
   top: 0;
-  width: 250px;
+  width: 20%;
 
   header {
-    width: 100%;
-    color: white;
-    font-family: 'Open Sans',sans-serif;
-    font-weight: 900;
+    width: 80%;
+    color: $standard-light-white-font;
     font-size: 2em;
-    text-align: center;
-    border-bottom: 2px solid $standard-blue-light;
-    padding: 10px;
-    text-transform: uppercase;
+    border-bottom: 2px solid $standard-baige-light;
+    position: relative;
+    text-align: right;
+
+    a {
+      width: 90%;
+      color: $standard-light-white-font;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    span.fa {
+      position: absolute;
+      top: 9px;
+      left: -5px;
+    }
   }
 
   footer {
@@ -44,26 +67,33 @@ nav.custom-navbar {
 
   .side-nav {
     li {
-
       position: relative;
-      padding-right: 30px;
 
       a {
         color: $standard-light-white-font;
         font-family: 'Open Sans',sans-serif;
         font-weight: 700;
-        font-size: 1.5em;
+        font-size: 1.25em;
+        @include transition(500ms);
 
         &:hover {
-          color: $standard-menu-color;
+          color: $standard-baige-light;
+          span.fa {
+            color: $standard-light-white-font;
+          }
         }
 
         &:focus {
-          color: $standard-blue-light;
+          color: $standard-baige-light;
+          span.fa {
+            color: $standard-light-white-font;
+          }
         }
 
         span.fa {
           padding: 10px 15px 10px 5px;
+          color: $standard-baige-light;
+          @include transition(500ms);
         }
       }
 
