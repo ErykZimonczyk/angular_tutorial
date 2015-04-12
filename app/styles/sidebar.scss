@@ -26,10 +26,12 @@ div.custom-navbar {
   height: 100%;
   left: 0;
   top: 0;
-  width: 20%;
+  width: 190px;
+
 
   header {
-    width: 80%;
+
+    width: 85%;
     color: $standard-light-white-font;
     font-size: 2em;
     border-bottom: 2px solid $standard-baige-light;
@@ -45,61 +47,102 @@ div.custom-navbar {
     }
 
     span.fa {
+      cursor: pointer;
       position: absolute;
       top: 9px;
       left: -5px;
     }
   }
 
-  footer {
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-    color: white;
-    display: inline-block;
-    font-size: 10px;
+  .side-nav {
+    li {
+      cursor: pointer;
+      position: relative;
+      color: $standard-light-white-font;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1em;
+      @include transition(200ms);
 
-    span {
-      padding: 5px 5px 5px 10px;
-      display: inline-block;
+      &:hover {
+        color: $standard-baige-light;
+        background: $standard-light-menu;
+        span.fa {
+          color: $standard-light-white-font;
+        }
+      }
+
+      &:focus {
+        color: $standard-baige-light;
+        span.fa {
+          color: $standard-light-white-font;
+        }
+      }
+
+      span.fa {
+        font-size: 1.5em;
+        padding: 10px 33px 10px 10px;
+        color: $standard-baige-light;
+        @include transition(200ms);
+      }
     }
   }
 
-  .side-nav {
-    li {
-      position: relative;
 
-      a {
-        color: $standard-light-white-font;
-        font-family: 'Open Sans',sans-serif;
-        font-weight: 700;
-        font-size: 1.25em;
-        @include transition(500ms);
+  @media screen and (max-width: 900px){
+    header {
+      font-size: 1.5em;
+      span.fa {
+        top: 6px;
+        left: -3px;
+      }
+    }
 
-        &:hover {
-          color: $standard-baige-light;
-          span.fa {
-            color: $standard-light-white-font;
-          }
-        }
-
-        &:focus {
-          color: $standard-baige-light;
-          span.fa {
-            color: $standard-light-white-font;
-          }
-        }
+    .side-nav {
+      li {
+        font-size: 0.75em;
 
         span.fa {
-          padding: 10px 15px 10px 5px;
-          color: $standard-baige-light;
-          @include transition(500ms);
+          font-size: 14px;
+          padding: 5px 20px 10px 5px;
         }
       }
+    }
+    &{
+      width: 135px;
+    }
+  }
 
-      &:hover {
-        background: $standard-light-menu;
+  @media screen and (max-width: 670px){
+    .smartHide {
+      display: none;
+    }
+
+
+
+    header {
+      width: 100%;
+      span.fa {
+        position: static;
+        margin: 5px 0;
+        text-align: center;
+        display: block;
       }
+    }
+
+    .side-nav {
+      li {
+        text-align: center;
+        margin: 0;
+        span.fa {
+          font-size: 2em;
+          padding: 7px 0;
+        }
+      }
+    }
+
+    &{
+      width: 40px;
     }
   }
 }

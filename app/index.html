@@ -5,13 +5,15 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
+
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/normalize.css">
@@ -19,39 +21,19 @@
     <link rel="stylesheet" href="styles/sidebar.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="angularTutorialApp">
+
+  <body ng-app="foramApp">
+
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+  <div ng-controller="menuCtrl">
+      <menu menu="menu"></menu>
+  </div>
 
-    <div class="custom-navbar">
-      <header>
-        <span class="fa fa-bars"></span><a ng-href="#/">foram</a>
-      </header>
-      <ul class="side-nav" role="navigation">
-        <li><a ng-href="#/"><span class="fa fa-fw fa-home"></span>Home</a></li>
-        <li><a ng-href="#/databases"><span class="fa fa-fw fa-database"></span>Databases</a></li>
-        <li><a ng-href="#/browser"><span class="fa fa-fw fa-folder-open"></span>Browse</a></li>
-        <li><a ng-href="#/visualization"><span class="fa fa-fw fa-cube"></span>3D Visualisation</a></li>
-        <li><a ng-href="#/charts"><span class="fa fa-fw fa-area-chart"></span>Charts</a></li>
-        <li><a ng-href="#/settings"><span class="fa fa-fw fa-gear"></span>Settings</a></li>
-      </ul>
-      <footer>
-        <span class="fa fa-keyboard-o fa-2x"></span>
-        by ErZ
-      </footer>
-    </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
+  <div class="container">
+    <div ng-view></div>
+  </div>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -66,10 +48,11 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
-</body>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/directives/menu.js"></script>
+    <script src="scripts/controllers/menu.js"></script>
+    <!-- endbuild -->
+
+  </body>
 </html>

@@ -8,32 +8,21 @@
  *
  * Main module of the application.
  */
-angular
-  .module('angularTutorialApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/settings', {
-        templateUrl: 'views/settings.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+
+var app = angular.module('foramApp', ['ngRoute']);
+
+app.config(function($locationProvider,$routeProvider){
+
+  $routeProvider
+    .when('/',{
+      templateUrl: '/views/main.html',
+      controller: 'mainCtrl'
+    })
+    .when('/settings',{
+      templateUrl: '/views/settings.html',
+      controller: 'mainCtrl'
+    })
+    .otherwise({redirectTo: '/'});
+});
+
+app.controller('mainCtrl',function($scope){});
