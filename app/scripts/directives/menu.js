@@ -13,25 +13,25 @@ app.directive('menu',function(){
   }
 });
 
-app.directive('menuPosition',function($location){
+app.directive('menuPosition',function($location,$compile,$templateCache){
   return {
     restrict: 'E',
     scope: {
       position: "="
     },
     templateUrl: '/views/submenu-temp.html',
-    link: function (scope, element, attrs) {
-      if(scope.position.list.length == 0){
-        element.bind('click',function(){
-          $location.path(scope.position.args).replace();
-          scope.$apply();
-        })
-      } else {
-        element.bind('click',function(e){
-          element[0].find('ul').toggleClass('visible');
-        })
-      }
-    }
+    link: function(scope,element,attr){
+      var template = $templateCache.get('/views/submenu-temp.html')[1];
 
+      if (scope.position.list) {
+        template += '<ul  class="submenu"><menu-position ng-repeat="subposition in position.list" position="subposition"></menu-position></ul>';
+      }
+
+      template = '<li class="menu-option" id="{{position.args}}" ng-click="position.click(position.args)">'+template+'</li>';
+      var newElement = angular.element(template);
+      $compile(newElement)(scope);
+
+      element.replaceWith(newElement);
+    }
   }
 });

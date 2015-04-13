@@ -3,7 +3,37 @@
  */
 'use strict';
 
-app.controller('menuCtrl',function($scope){
+app.service('Database',function(){
+  return {
+    addDatabase: function(){
+      console.log("addDatabase");
+    },
+    searchDatabase: function(){
+      console.log("searchDatabase");
+    },
+    deleteDatabase: function(){
+      console.log("deleteDatabase");
+    }
+  }
+});
+
+app.controller('menuCtrl',function($scope,Database,$location){
+  $scope.go = function(url) {
+    angular.element(document.getElementsByClassName('menu-option active')).toggleClass('active');
+    $location.path(url);
+    console.log("go() with url = " + url);
+  };
+
+  $scope.showList = function(elementId) {
+    var oldActive = angular.element(document.getElementsByClassName('menu-option active'));
+    var newActive = angular.element(document.getElementById(elementId));
+
+    if(oldActive.attr('id') != newActive.attr('id')){
+      oldActive.toggleClass('active');
+    }
+    newActive.toggleClass('active');
+  };
+
   $scope.menu = {
     name: 'FORAM',
     icon: 'bars',
@@ -12,35 +42,35 @@ app.controller('menuCtrl',function($scope){
         name: 'Home',
         icon: 'home',
         args: '/',
-        click: 'go',
-        list: []
+        click: $scope.go
+
       },
       {
         name: 'Databases',
         icon: 'database',
-        args: '',
-        click: 'showList',
+        args: 'databasesSubmenu',
+        click: $scope.showList,
         list: [
           {
             name: 'New',
             icon: 'plus',
             args: '',
-            click: 'addDatabase',
-            list: []
+            click: Database.addDatabase
+
           },
           {
             name: 'Search',
             icon: 'search',
             args: '',
-            click: 'searchDatabase',
-            list: []
+            click: Database.searchDatabase
+
           },
           {
             name: 'Delete',
             icon: 'minus',
             args: '',
-            click: 'deleteDatabase',
-            list: []
+            click: Database.deleteDatabase
+
           }
         ]
       },
@@ -48,42 +78,42 @@ app.controller('menuCtrl',function($scope){
         name: 'Browse',
         icon: 'folder-open',
         args: '/browse',
-        click: 'go',
-        list: []
+        click: $scope.go
+
       },
       {
         name: '3D Visualisation',
         icon: 'cube',
         args: '/visualisation',
-        click: 'go',
-        list: []
+        click: $scope.go
+
       },
       {
         name: 'Charts',
         icon: 'pie-chart',
-        args: '',
-        click: 'showList',
+        args: 'chartSubmenu',
+        click: $scope.showList,
         list: [
           {
             name: 'Line Charts',
             icon: 'line-chart',
             args: '/linechart',
-            click: 'go',
-            list: []
+            click: $scope.go
+
           },
           {
             name: 'Bar Charts',
             icon: 'bar-chart',
             args: '/barchart',
-            click: 'go',
-            list: []
+            click: $scope.go
+
           },
           {
             name: 'Area Charts',
             icon: 'area-chart',
             args: '/areachart',
-            click: 'go',
-            list: []
+            click: $scope.go
+
           }
         ]
       },
@@ -91,19 +121,13 @@ app.controller('menuCtrl',function($scope){
         name: 'Settings',
         icon: 'gear',
         args: '/settings',
-        click: 'go',
-        list: []
+        click: $scope.go
+
       }
     ]
   };
 
-  $scope.go = function(e) {
-    console.log("go");
-  };
 
-  $scope.showList = function(e) {
-    console.log("show");
-  }
 
 
 });

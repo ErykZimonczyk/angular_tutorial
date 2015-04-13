@@ -23,6 +23,8 @@ app.config(function($locationProvider,$routeProvider){
       controller: 'mainCtrl'
     })
     .otherwise({redirectTo: '/'});
+
+
 });
 
 app.controller('mainCtrl',function($scope){});

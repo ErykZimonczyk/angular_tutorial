@@ -20,5 +20,13 @@ body {
 }
 
 .container {
-  margin-left: 20%;
+  margin-left: 190px;
+
+  @media screen and (max-width: 900px){
+    margin-left: 135px;
+  }
+
+  @media screen and (max-width: 670px){
+    margin-left: 40px;
+  }
 }
